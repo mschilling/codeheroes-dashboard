@@ -6,23 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="shortcut icon" type="image/ico" href="favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./todo/styles/todo.css" />
+    <!--<link rel="stylesheet" href="./todo/styles/todo.css" />-->
 
-    <title>vue2do</title>
+    <title>Code Heroes</title>
   </head>
   <body>
-    <main id="app">
-      <todo-cmp></todo-cmp>
-    </main>
+    <!--<main id="app">
 
-    
-    <script src="node_modules/vue/dist/vue.js?rev=@@hash"></script>
-    <script src="node_modules/vue-router/dist/vue-router.min.js?rev=@@hash"></script>
-    <script src="node_modules/vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
+    </main>-->
 
-    <script src="client/dev/todo/services/todo-service.js?rev=@@hash"></script>
-    <script src="client/dev/todo/components/todo-cmp.js?rev=@@hash"></script>
-    <script src="client/dev/index.js"></script>
-    
+    <div id="demo">
+      <ul>
+        <li v-for="item in anArray">
+          <!--<img :src="item.user.avatar" />-->
+           {{ item.timestamp}} - {{ item.user.displayName }}, {{ item.project.name }} - {{ item.description }} - {{ item.event }}
+          </li>
+      </ul>
+    </div>
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <!-- VueFire -->
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+
+    <!--<script src="node_modules/vue/dist/vue.js"></script>-->
+    <!--<script src="node_modules/vue-router/dist/vue-router.min.js?rev=@@hash"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>-->
+
+    <script>
+      // Initialize Firebase
+      var config = {
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="scripts/app.js"></script>
+
   </body>
 </html>

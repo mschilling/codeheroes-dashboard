@@ -1,89 +1,27 @@
 {
-  "name": "Code Heroes",
-  "version": "0.0.1",
-  "main": "src/Code Heroes.js",
+  "name": "code-heroes",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://secure.travis-ci.org/mschilling/Code Heroes.png?branch=master)](https://travis-ci.org/mschilling/Code Heroes) [![Coverage Status](https://coveralls.io/repos/mschilling/Code Heroes/badge.svg?branch=master)](https://coveralls.io/r/mschilling/Code Heroes/?branch=master)",
+  "main": "index.js",
   "scripts": {
-    
-      "start": "gulp",
-      "dev": "gulp",
-      "watch": "gulp",
-      "test": "gulp client.unit_test",
-      "build-dist": "gulp client.build:dist"
-      
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    
-      
-       
-         "vue": "^2.1.10",
-         "vue-resource": "^1.0.3",
-         "vue-router": "^2.1.3",
-       
-       
-       
-         "spdy": "^3.4.4",
-       
-  	   "babel-register": "^6.7.2",
-       "babel-regenerator-runtime": "^6.5.0",
-       "babel-preset-es2015": "^6.1.18",
-       "babel-preset-es2016": "^6.0.11",
-       "babel-preset-stage-0": "^6.1.18",
-       "newrelic": "^1.18.2"
-  },
-  "devDependencies": {
-    "aliv": "^1.6.0",
-    "karma-ng-html2js-preprocessor": "^0.1.2",
-    "del": "^2.2.1",
-  	"gulp": "^3.9.0",
-    "protractor": "^3.1.0",
-    "browser-sync": "^2.5.2",
-    "require-dir": "^0.3.0",
-    "babili": "0.0.6",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.4.3",
-    "gulp-coveralls": "^0.1.3",
-    "gulp-typescript": "~3.1.4",
-    "gulp-clean-css": "^2.0.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-rev-append": "^0.1.6",
-    "gulp-uglify": "^1.1.0",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-util": "^3.0.3",
-    
-    
-      "gulp-sass": "^2.3.2",
-    
-    "jasmine-core": "^2.2.0",
-    "run-sequence": "^1.1.5",
-    "karma": "^1.3.0",
-    "karma-jasmine": "^1.0.2",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-ng-html2js-preprocessor": "^1.0.0",
-    "karma-opera-launcher": "^1.0.0",
-    "karma-phantomjs-launcher": "^1.0.1",
-    "karma-safari-launcher": "^1.0.0",
-    "mocha": "^2.4.5",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.2",
-    "istanbul": "^0.4.4",
-    "concurrently": "^2.0.0"
-  },
-  
   "repository": {
     "type": "git",
-    "url": "https://github.com/mschilling/Code Heroes.git"
+    "url": "git+https://github.com/mschilling/codeheroes-dashboard.git"
   },
-  "author": "mschilling",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mschilling/Code Heroes/issues"
+    "url": "https://github.com/mschilling/codeheroes-dashboard/issues"
   },
-  "homepage": "https://github.com/mschilling/Code Heroes",
-  "engines": {
-    "node": "stable"
+  "homepage": "https://github.com/mschilling/codeheroes-dashboard#readme",
+  "dependencies": {
+    "vue": "^2.1.10",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.1.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
