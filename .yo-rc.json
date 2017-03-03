@@ -1,0 +1,15 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "Code Heroes",
+    "username": "mschilling",
+    "userEmail": "mschilling@arkid.nl",
+    "stack": "client",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "mschilling",
+    "client": "vue2",
+    "stylePreprocessor": "sass",
+    "server": "",
+    "secure": true,
+    "testsSeparated": true
+  }
+}
