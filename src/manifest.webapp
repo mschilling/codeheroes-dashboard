@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Code Heroes",
+  "launch_path": "/index.html",
+  "description": "Be a Code Hero",
+  "icons": {
+    "128": "/images/touch/touch-icon-128x128.png"
+  },
+  "developer": {
+    "name": "Michael Schilling",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Code Heroes",
+      "description": "Be a Hero"
+    }
+  },
+  "gcm_sender_id": "1085491840581"
+}

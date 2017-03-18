@@ -1,0 +1,71 @@
+<div class="app-content-container">
+  <div id="page-user-info" class="app-content-wide" *ngIf="currentPerson">
+
+    <div class="fp-user-container mat-elevation-z2">
+      <div class="fp-user-avatar"
+           [ngStyle]="{ 'background-image': 'url(' + currentPerson.profile_picture + ')' }"></div>
+
+      <div class="fp-name-follow-container mdl-cell mdl-cell--5-col">
+        <div class="fp-user-username">{{ currentPerson.full_name }}</div>
+
+        <div class="fp-signed-in-only" *ngIf="personId == authService.id">
+          <!--
+          <md-slide-toggle
+              [(ngModel)]="currentPerson.notificationsEnabled"
+              [color]="'primary'">
+            Notifications {{ currentPerson.notificationsEnabled ? 'Enabled' : 'Disabled' }}
+          </md-slide-toggle>
+          -->
+        </div>
+
+        <div class="fp-signed-in-only" *ngIf="personId != authService.id">
+          <!--
+          <md-slide-toggle
+              [checked]="isFollowing"
+              (change)="toggleFollow($event)"
+              [color]="'primary'">
+            Following
+          </md-slide-toggle>
+          -->
+        </div>
+
+        <div class="fp-user-detail-container">
+          <div class="fp-user-detail" *ngIf="compositePosts"><span class="fp-user-nbposts">{{ compositePosts.length }}</span> {{ compositePosts.length != 1  ? 'posts' : 'post' }}</div>
+          <!--
+          <div class="fp-user-detail" *ngIf="followers"><span class="fp-user-nbfollowers">{{ followersCount }}</span> {{ followersCount == 1 ? 'follower' : 'followers' }}</div>
+          <div class="fp-user-detail fp-user-nbfollowing-container"
+               *ngIf="following"
+               [ngClass]="{'is-active': showFollowing}"
+               (click)="toggleShowFollowers($event)"><span class="fp-user-nbfollowing">{{ followingCount }}</span> following</div>
+           -->
+        </div>
+      </div>
+    </div>
+
+    <div class="fp-user-following" *ngIf="showFollowing">
+      <a md-button class="fp-usernamelink" href="/person/SfWcx3sA58h573Gj9udt4A2tSZd2">
+        <div class="fp-avatar"
+             style="background-image: url('https://lh6.googleusercontent.com/-3vhVlg7Ydss/AAAAAAAAAAI/AAAAAAACKxI/aLJiPA6cBso/photo.jpg')"></div>
+        <div class="fp-username mdl-color-text--black">Erik Haddad</div>
+      </a>
+
+      <button md-fab class="fp-close-following" (click)="toggleShowFollowers($event)">
+        <md-icon>expand_less</md-icon>
+      </button>
+    </div>
+
+    <div class="fp-images-container" *ngIf="compositePosts && compositePosts.length > 0">
+      <div class="fp-image-container" *ngFor="let post of compositePosts">
+        <div class="fp-image mat-elevation-z2" (click)="showPost(post, $event)">
+          <div class="fp-overlay">
+            <md-icon>favorite</md-icon><span class="likes">{{ post.likes }}</span>
+            <md-icon>label</md-icon><span class="comments">{{ post.tags ? post.tags.length : 0 }}</span>
+            <div class="fp-pic-text" *ngIf="false">{{ post.text }}</div>
+          </div>
+          <div class="image-card"
+               [ngStyle]="{ 'background-image': 'url(' + post.full_url + ')' }"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

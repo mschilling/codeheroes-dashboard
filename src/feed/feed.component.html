@@ -1,0 +1,81 @@
+<div class="app-content-container">
+  <div class="app-content" *ngIf="compositePosts">
+    <div class="fp-posts" *ngIf="compositePosts.length > 0">
+      <md-card class="post-card" *ngFor="let post of compositePosts">
+
+        <md-card-header class="post-header">
+          <div md-card-avatar
+               class="post-header-image"
+               *ngIf="post.author"
+               [ngStyle]="{'background-image': 'url(' + post.author.profile_picture + ')'}"></div>
+
+          <md-card-title *ngIf="post.author">
+            <a class="post-user-link" [href]="'/person/'+post.author.uid">{{ post.author.full_name }}</a>
+          </md-card-title>
+
+          <md-card-subtitle>
+            <a href="/map" class="post-location"
+               fxLayout="row" fxLayoutAlign="start center"
+               *ngIf="post.location">
+              <md-icon>location_on</md-icon>
+              <span mdTooltip="{{ post.location.formatted_address }}">{{ post.location.formatted_address }}</span>
+            </a>
+          </md-card-subtitle>
+
+          <div fxFlex></div>
+
+          <div class="timestamp-camera-container">
+            <div class="post-time-ago"
+                 fxLayout="row" fxLayoutAlign="end center"
+                 *ngIf="post.timestamp">
+              <md-icon>history</md-icon>
+              <span mdTooltip="{{ post.timestamp | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a' }}">{{ post.timestamp | amTimeAgo:true }} ago</span>
+            </div>
+
+            <p class="camera-info"
+               fxLayout="row" fxLayoutAlign="end center"
+               *ngIf="post.camera">
+              <md-icon>photo_camera</md-icon>
+              <span mdTooltip="{{ post.camera.make + ' ' + post.camera.model }}">{{ post.camera.make }} {{ post.camera.model }}</span>
+            </p>
+          </div>
+        </md-card-header>
+
+        <div md-card-image class="post-image"
+             *ngIf="post.full_url"
+             (click)="showPost(post, $event)"
+             [ngStyle]="{'background-image': 'url(' + post.full_url + ')'}"></div>
+
+        <md-card-content class="post-content">
+          <p *ngIf="false">{{ post.text }}</p>
+
+          <button md-icon-button class="btn-like" [ngSwitch]="post.liked" (click)="togglePostLike(post, $event)">
+            <md-icon class="fp-liked" *ngSwitchCase="true">favorite</md-icon>
+            <md-icon class="fp-not-liked" *ngSwitchDefault>favorite_border</md-icon>
+          </button>
+          <span class="like-count" *ngIf="post.likes > 0">{{ post.likes }}</span>
+          <md-chip-list class="tags-chip-list" *ngIf="post.tags">
+            <md-chip *ngFor="let tag of post.tags"
+              mdTooltip="{{ tag.score | percent }}">{{ tag.description }}</md-chip>
+          </md-chip-list>
+        </md-card-content>
+
+        <md-card-actions class="post-actions">
+          <div fxLayout="row" *ngIf="false">
+            <button md-icon-button class="btn-like" [ngSwitch]="post.liked" (click)="post.liked = !post.liked">
+              <md-icon class="fp-liked" *ngSwitchCase="true">favorite</md-icon>
+              <md-icon class="fp-not-liked" *ngSwitchDefault>favorite_border</md-icon>
+            </button>
+            <md-input-container fxFlex class="comment-input">
+              <input mdInput placeholder="Comment..." floatPlaceholder="false" dividerColor="accent">
+            </md-input-container>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+    <div class="fp-no-posts" *ngIf="compositePosts.length == 0" fxLayout="column" fxLayoutAlign="center center">
+      <img class="placeholder" src="/assets/images/feed-placeholder.gif" />
+    </div>
+  </div>
+</div>
