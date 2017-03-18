@@ -21,6 +21,8 @@ export class DataService {
     private locationsPath: string;
     private camerasPath: string;
 
+    private userCommitsThisDayPath: string;
+    private userCommitsThisWeekPath: string;
     private userCommitsThisMonthPath: string;
 
     constructor(private af: AngularFire, private auth: AuthService) {
@@ -35,6 +37,8 @@ export class DataService {
         this.locationsPath = `/locations/`;
         this.camerasPath = `/cameras/`;
 
+        this.userCommitsThisDayPath = `/metrics/user/commits_per_day/${'20170318'}`;
+        this.userCommitsThisWeekPath = `/metrics/user/commits_per_week/${'201711'}`;
         this.userCommitsThisMonthPath = `/metrics/user/commits_per_month/${'201703'}`;
 
     }
@@ -77,8 +81,28 @@ export class DataService {
         return this.af.database.list(this.camerasPath);
     }
 
+    get userCommitsThisDay(): FirebaseListObservable<IScore[]> {
+        return this.af.database.list(this.userCommitsThisDayPath, {
+          query: {
+            orderByChild: 'orderKey'
+          }
+        });
+    }
+
+    get userCommitsThisWeek(): FirebaseListObservable<IScore[]> {
+        return this.af.database.list(this.userCommitsThisWeekPath, {
+          query: {
+            orderByChild: 'orderKey'
+          }
+        });
+    }
+
     get userCommitsThisMonth(): FirebaseListObservable<IScore[]> {
-        return this.af.database.list(this.userCommitsThisMonthPath);
+        return this.af.database.list(this.userCommitsThisMonthPath, {
+          query: {
+            orderByChild: 'orderKey'
+          }
+        });
     }
 
     /** PUBLIC POST **/

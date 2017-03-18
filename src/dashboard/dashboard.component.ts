@@ -35,6 +35,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private tags$: FirebaseListObservable<ITag[]>;
     private locations$: FirebaseListObservable<ILocation[]>;
     private cameras$: FirebaseListObservable<ICamera[]>;
+
+    private userCommitsThisDay: FirebaseListObservable<IScore[]>;
+    private userCommitsThisWeek: FirebaseListObservable<IScore[]>;
     private userCommitsThisMonth: FirebaseListObservable<IScore[]>;
 
     constructor(private dataService: DataService,
@@ -50,6 +53,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.tags$ = this.dataService.tags;
         this.locations$ = this.dataService.locations;
         this.cameras$ = this.dataService.cameras;
+
+        this.userCommitsThisDay = this.dataService.userCommitsThisDay;
+        this.userCommitsThisWeek = this.dataService.userCommitsThisWeek;
         this.userCommitsThisMonth = this.dataService.userCommitsThisMonth;
 
         this.compositePosts = [];

@@ -56,7 +56,13 @@
         <md-card-content class="post-content">
           <p *ngIf="false">{{ post.text }}</p>
           <div *ngFor="let user of userCommitsThisMonth | async">
-            {{ user.$key }}
+
+          <div md-card-avatar
+               class="post-header-image"
+               *ngIf="user.avatar"
+               [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}"></div>
+
+            {{ user.name }}
             {{ user.score }}
           </div>
 
