@@ -90,7 +90,8 @@ export class DataService {
     get userCommitsThisDay(): FirebaseListObservable<IScore[]> {
         return this.af.database.list(this.userCommitsThisDayPath, {
           query: {
-            orderByChild: 'orderKey'
+            orderByChild: 'orderKey',
+            limitToFirst: 5
           }
         });
     }
@@ -98,7 +99,8 @@ export class DataService {
     get userCommitsThisWeek(): FirebaseListObservable<IScore[]> {
         return this.af.database.list(this.userCommitsThisWeekPath, {
           query: {
-            orderByChild: 'orderKey'
+            orderByChild: 'orderKey',
+            limitToFirst: 5
           }
         });
     }
@@ -106,7 +108,8 @@ export class DataService {
     get userCommitsThisMonth(): FirebaseListObservable<IScore[]> {
         return this.af.database.list(this.userCommitsThisMonthPath, {
           query: {
-            orderByChild: 'orderKey'
+            orderByChild: 'orderKey',
+            limitToFirst: 5
           }
         });
     }
