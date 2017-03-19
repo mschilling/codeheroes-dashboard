@@ -19,7 +19,7 @@
           <div fxFlex></div>
 
           <div class="timestamp-camera-container">
-            laatst geupdate ..
+            <!--laatst geupdate ..-->
           </div>
         </md-card-header>
 
@@ -30,8 +30,8 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span> {{user.$key}} </span>
-                <span class="demo-2"> -- random quote or something .. </span>
+                <span class="message"> {{ user.message }} </span>
+                <span class="time"> &middot; {{ user.timestamp | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
@@ -55,7 +55,7 @@
           <div fxFlex></div>
 
           <div class="timestamp-camera-container">
-            laatst geupdate ..
+            <!--laatst geupdate ..-->
           </div>
         </md-card-header>
 
@@ -66,8 +66,8 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span> {{user.$key}} </span>
-                <span class="demo-2"> -- random quote or something .. </span>
+                <span class="message"> {{ user.message }} </span>
+                <span class="time"> &middot; {{ user.timestamp | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
@@ -91,7 +91,7 @@
           <div fxFlex></div>
 
           <div class="timestamp-camera-container">
-            laatst geupdate ..
+            <!--laatst geupdate ..-->
           </div>
         </md-card-header>
 
@@ -102,8 +102,8 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span> {{user.$key}} </span>
-                <span class="demo-2"> -- {{user.score}} </span>
+                <span class="message"> {{ user.message }} </span>
+                <span class="time"> &middot; {{ user.timestamp | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
