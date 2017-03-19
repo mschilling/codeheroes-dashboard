@@ -1,6 +1,19 @@
 .post-card {
   margin: 6px 0 12px;
 
+  .post-score {
+    color: #FF5252;
+    // flex: 1;
+    // background-size: cover;
+    // background-position: 50% 50%;
+    // box-sizing: border-box;
+    // padding-top: 25%;
+    // position: right;
+    // padding-bottom: 25%;
+    // min-height: 296px;
+    // cursor: pointer;
+  }
+
   .post-header-image {
     background-size: cover;
     height: 36px;
@@ -20,7 +33,7 @@
     word-wrap: break-word;
     white-space: nowrap;
     max-width: 346px;
-    
+
     &:hover {
       text-decoration: underline;
     }
@@ -49,7 +62,7 @@
       white-space: nowrap;
       max-width: 346px;
     }
-    
+
     &:hover {
       span {
         text-decoration: underline;

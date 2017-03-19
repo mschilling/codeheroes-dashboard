@@ -3,83 +3,115 @@
 
     <!--<div class="fp-posts" *ngIf="userCommitsThisMonth.length > 0">-->
     <div class="fp-posts">
+
       <md-card class="post-card">
 
         <md-card-header class="post-header">
-          <!--<div md-card-avatar
-               class="post-header-image"
-               *ngIf="item.author"
-               [ngStyle]="{'background-image': 'url(' + item.author.profile_picture + ')'}"></div>-->
-
-          <!--<md-card-title *ngIf="post.author">
-            <a class="post-user-link" [href]="'/person/'+item.author.uid">{{ post.author.full_name }}</a>
-          </md-card-title>-->
 
           <md-card-title>
-            Commits per Month
-            <!--<a class="post-user-link" [href]="'/person/'+item.$key">{{ item.$key }}</a>-->
+            Commits vandaag
           </md-card-title>
 
           <md-card-subtitle>
-            <!--<a href="/map" class="post-location"
-               fxLayout="row" fxLayoutAlign="start center"
-               *ngIf="item.location">
-              <md-icon>location_on</md-icon>
-              <span mdTooltip="{{ item.location.formatted_address }}">{{ item.location.formatted_address }}</span>
-            </a>-->
+            Don't miss it
           </md-card-subtitle>
 
           <div fxFlex></div>
 
           <div class="timestamp-camera-container">
-            <!--<div class="post-time-ago"
-                 fxLayout="row" fxLayoutAlign="end center"
-                 *ngIf="item.timestamp">
-              <md-icon>history</md-icon>
-              <span mdTooltip="{{ post.timestamp | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a' }}">{{ post.timestamp | amTimeAgo:true }} ago</span>
-            </div>-->
-
-            <!--<p class="camera-info"
-               fxLayout="row" fxLayoutAlign="end center"
-               *ngIf="item.camera">
-              <md-icon>photo_camera</md-icon>
-              <span mdTooltip="{{ post.camera.make + ' ' + post.camera.model }}">{{ post.camera.make }} {{ post.camera.model }}</span>
-            </p>-->
+            laatst geupdate ..
           </div>
         </md-card-header>
 
-        <!--<div md-card-image class="post-image"
-             *ngIf="item.full_url"
-             (click)="showPost(post, $event)"
-             [ngStyle]="{'background-image': 'url(' + post.full_url + ')'}"></div>-->
-
         <md-card-content class="post-content">
-          <p *ngIf="false">{{ post.text }}</p>
-          <div *ngFor="let user of userCommitsThisMonth | async">
-
-          <div md-card-avatar
-               class="post-header-image"
-               *ngIf="user.avatar"
-               [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}"></div>
-
-            {{ user.name }}
-            {{ user.score }}
-          </div>
+          <md-list>
+            <md-list-item *ngFor="let user of userCommitsThisDay | async">
+              <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
+              <span class="post-score">{{ user.score}}</span>
+              <h3 md-line> {{user.name}} </h3>
+              <p md-line>
+                <span> {{user.$key}} </span>
+                <span class="demo-2"> -- random quote or something .. </span>
+              </p>
+            </md-list-item>
+          </md-list>
 
         </md-card-content>
 
-        <md-card-actions class="post-actions">
-          <div fxLayout="row" *ngIf="false">
-            <!--<button md-icon-button class="btn-like" [ngSwitch]="item.liked" (click)="item.liked = !item.liked">
-              <md-icon class="fp-liked" *ngSwitchCase="true">favorite</md-icon>
-              <md-icon class="fp-not-liked" *ngSwitchDefault>favorite_border</md-icon>
-            </button>-->
-            <!--<md-input-container fxFlex class="comment-input">
-              <input mdInput placeholder="Comment..." floatPlaceholder="false" dividerColor="accent">
-            </md-input-container>-->
-          </div>
-        </md-card-actions>
       </md-card>
+
+      <md-card class="post-card">
+
+        <md-card-header class="post-header">
+
+          <md-card-title>
+            Commits deze week
+          </md-card-title>
+
+          <md-card-subtitle>
+            Don't miss it
+          </md-card-subtitle>
+
+          <div fxFlex></div>
+
+          <div class="timestamp-camera-container">
+            laatst geupdate ..
+          </div>
+        </md-card-header>
+
+        <md-card-content class="post-content">
+          <md-list>
+            <md-list-item *ngFor="let user of userCommitsThisWeek | async">
+              <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
+              <span class="post-score">{{ user.score}}</span>
+              <h3 md-line> {{user.name}} </h3>
+              <p md-line>
+                <span> {{user.$key}} </span>
+                <span class="demo-2"> -- random quote or something .. </span>
+              </p>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+
+      </md-card>
+
+      <md-card class="post-card">
+
+        <md-card-header class="post-header">
+
+          <md-card-title>
+            Commits deze maand
+          </md-card-title>
+
+          <md-card-subtitle>
+            Don't miss it
+          </md-card-subtitle>
+
+          <div fxFlex></div>
+
+          <div class="timestamp-camera-container">
+            laatst geupdate ..
+          </div>
+        </md-card-header>
+
+        <md-card-content class="post-content">
+          <md-list>
+            <md-list-item *ngFor="let user of userCommitsThisMonth | async">
+              <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
+              <span class="post-score">{{ user.score}}</span>
+              <h3 md-line> {{user.name}} </h3>
+              <p md-line>
+                <span> {{user.$key}} </span>
+                <span class="demo-2"> -- {{user.score}} </span>
+              </p>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+
+      </md-card>
+
     </div>
 
   </div>
