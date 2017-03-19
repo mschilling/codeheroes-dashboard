@@ -7,6 +7,7 @@ import {AuthService} from '../auth/auth.service';
 import {IPost, Post, IComment, IPerson, ILike, Person, ITag, ILocation, ICamera, IFollower, IScore} from './data.model';
 
 import * as firebase from 'firebase';
+import * as moment from "moment/moment";
 
 @Injectable()
 export class DataService {
@@ -37,9 +38,14 @@ export class DataService {
         this.locationsPath = `/locations/`;
         this.camerasPath = `/cameras/`;
 
-        this.userCommitsThisDayPath = `/metrics/user/commits_per_day/${'20170318'}`;
-        this.userCommitsThisWeekPath = `/metrics/user/commits_per_week/${'201711'}`;
-        this.userCommitsThisMonthPath = `/metrics/user/commits_per_month/${'201703'}`;
+        const timestamp = moment();
+        const dayKey = timestamp.format('YYYYMMDD');
+        const weekKey = timestamp.format('YYYY') + ('0' + timestamp.isoWeek()).slice(-2);
+        const monthKey = timestamp.format('YYYYMM');
+
+        this.userCommitsThisDayPath = `/metrics/user/commits_per_day/${dayKey}`;
+        this.userCommitsThisWeekPath = `/metrics/user/commits_per_week/${weekKey}`;
+        this.userCommitsThisMonthPath = `/metrics/user/commits_per_month/${monthKey}`;
 
     }
 
