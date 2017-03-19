@@ -8,12 +8,10 @@ before_script:
 script:
 - npm install
 - ng build
-# after_success:
-# - chmod +x travis_scripts/deploy.sh
-# - ./travis_scripts/deploy.sh crossover-app
-# cache:
-#   directories:
-#     - $(npm config get prefix)/bin/cordova
-#     - $(npm config get prefix)/bin/ionic
-#     - $(npm config get prefix)/bin/firebase-tools
-#     - node_modules
+after_success:
+- ./deploy.sh m4m-code-heroes
+cache:
+  directories:
+    - $(npm config get prefix)/bin/angular-cli
+    - $(npm config get prefix)/bin/firebase-tools
+    - node_modules
