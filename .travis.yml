@@ -3,11 +3,13 @@ node_js:
 - "6.9"
 dist: trusty
 before_script:
-- npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
-- npm list -g firebase-tools --depth=0 || npm install -g firebase-tools
+- npm install -g @angular/cli
+- npm install -g firebase-tools
 script:
+- ls
 - npm install
 - ng build
+- ls
 after_success:
 - ./deploy.sh m4m-code-heroes
 cache:
