@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Code Heroes",
+  "name": "Coders",
   "launch_path": "/index.html",
   "description": "Be a Code Hero",
   "icons": {
@@ -18,7 +18,7 @@
   },
   "locales": {
     "en": {
-      "name": "Code Heroes",
+      "name": "Coders",
       "description": "Be a Hero"
     }
   },
