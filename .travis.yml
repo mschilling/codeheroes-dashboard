@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-- node
+- "6.9"
 dist: trusty
 before_script:
-- npm list -g angular-cli --depth=0 || npm install -g angular-cli
+- npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
 - npm list -g firebase-tools --depth=0 || npm install -g firebase-tools
 script:
 - npm install
@@ -12,6 +12,6 @@ after_success:
 - ./deploy.sh m4m-code-heroes
 cache:
   directories:
-    - $(npm config get prefix)/bin/angular-cli
+    - $(npm config get prefix)/bin/@angular/cli
     - $(npm config get prefix)/bin/firebase-tools
     - node_modules
