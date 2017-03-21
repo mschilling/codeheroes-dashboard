@@ -1,8 +1,22 @@
 <div class="app-content-container">
   <div class="app-content-wide">
 
-    <!--<div class="fp-posts" *ngIf="userCommitsThisMonth.length > 0">-->
     <div class="fp-posts">
+
+      <!--<md-grid-list cols="4" rowHeight="100px">
+        <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
+          quote_of_the_day
+        </md-grid-tile>
+        <md-grid-tile colspan="1" rowspan="2" style="background:lightgreen">
+          #total_commits
+        </md-grid-tile>
+        <md-grid-tile colspan="1" rowspan="1" style="background:lightpink">
+          #up_stats
+        </md-grid-tile>
+        <md-grid-tile colspan="2" rowspan="1" style="background:#DDBDF1">
+          #down_stats
+        </md-grid-tile>
+      </md-grid-list>-->
 
       <md-card class="post-card">
 
@@ -13,7 +27,7 @@
           </md-card-title>
 
           <md-card-subtitle>
-            Push and commit before going home 😉
+            Commit and push before going home 😉
           </md-card-subtitle>
 
           <div fxFlex></div>
@@ -39,21 +53,6 @@
         </md-card-content>
 
       </md-card>
-
-      <!--<md-grid-list cols="4" rowHeight="100px">
-        <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
-          quote_of_the_day
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="2" style="background:lightgreen">
-          #total_commits
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="1" style="background:lightpink">
-          #up_stats
-        </md-grid-tile>
-        <md-grid-tile colspan="2" rowspan="1" style="background:#DDBDF1">
-          #down_stats
-        </md-grid-tile>
-      </md-grid-list>-->
 
       <md-card class="post-card">
 
@@ -128,6 +127,35 @@
       </md-card>
 
     </div>
+
+      <md-grid-list cols="4" rowHeight="280px">
+        <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
+          quote_of_the_day / test block
+        </md-grid-tile>
+        <md-grid-tile colspan="1" rowspan="2" style="background:lightgreen">
+          <md-list>
+            <md-list-item>
+              #repo_commits_this_week
+            </md-list-item>
+            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
+              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
+              <span class="post-score">{{ repo.score}}</span>
+              <h3 md-line> {{repo.$key}} </h3>
+              <!--<p md-line>
+                <span class="message"> {{ user.message }} </span>
+                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
+              </p>-->
+            </md-list-item>
+          </md-list>
+
+        </md-grid-tile>
+        <md-grid-tile colspan="1" rowspan="1" style="background:lightpink">
+          #up_stats
+        </md-grid-tile>
+        <md-grid-tile colspan="2" rowspan="1" style="background:#DDBDF1">
+          #down_stats
+        </md-grid-tile>
+      </md-grid-list>
 
   </div>
 </div>

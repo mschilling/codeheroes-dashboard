@@ -26,6 +26,8 @@ export class DataService {
     private userCommitsThisWeekPath: string;
     private userCommitsThisMonthPath: string;
 
+    private repoCommitsThisWeekPath: string;
+
     constructor(private af: AngularFire, private auth: AuthService) {
         this.publicPostsPath = `/posts`;
         this.userPostsPath = `/feed/${auth.id}/posts`;
@@ -46,6 +48,8 @@ export class DataService {
         this.userCommitsThisDayPath = `/metrics/user/commits_per_day/${dayKey}`;
         this.userCommitsThisWeekPath = `/metrics/user/commits_per_week/${weekKey}`;
         this.userCommitsThisMonthPath = `/metrics/user/commits_per_month/${monthKey}`;
+
+        this.repoCommitsThisWeekPath = `/metrics/project/commits_per_week/${weekKey}`;
 
     }
 
@@ -91,7 +95,7 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisDayPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 5
+            limitToFirst: 10
           }
         });
     }
@@ -100,7 +104,7 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisWeekPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 5
+            limitToFirst: 10
           }
         });
     }
@@ -109,7 +113,16 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisMonthPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 5
+            limitToFirst: 10
+          }
+        });
+    }
+
+    get repoCommitsThisWeek(): FirebaseListObservable<IScore[]> {
+        return this.af.database.list(this.repoCommitsThisWeekPath, {
+          query: {
+            orderByChild: 'orderKey',
+            limitToFirst: 10
           }
         });
     }
