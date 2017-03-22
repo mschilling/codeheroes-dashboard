@@ -1,40 +1,14 @@
 <div class="app-content-container">
-  <div class="app-content-full">
+  <div class="app-content-hd">
 
-    <div class="fp-posts grid-container">
+    <div class="fp-posts grid-container" fxLayout='row'>
 
-      <!--<md-grid-list cols="4" rowHeight="100px">
-        <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
-          quote_of_the_day
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="2" style="background:lightgreen">
-          #total_commits
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="1" style="background:lightpink">
-          #up_stats
-        </md-grid-tile>
-        <md-grid-tile colspan="2" rowspan="1" style="background:#DDBDF1">
-          #down_stats
-        </md-grid-tile>
-      </md-grid-list>-->
-
-      <md-card class="post-card grid-item">
+      <md-card class="post-card grid-item" fxFlex="33" fxHide.xs>
 
         <md-card-header class="post-header">
-
-          <md-card-title>
-            Commits vandaag
-          </md-card-title>
-
-          <md-card-subtitle>
-            Commit and push before going home 😉
-          </md-card-subtitle>
-
+          <md-card-title>Commits vandaag</md-card-title>
+          <md-card-subtitle>Commit and push before going home 😉</md-card-subtitle>
           <div fxFlex></div>
-
-          <div class="timestamp-camera-container">
-            <!--laatst geupdate ..-->
-          </div>
         </md-card-header>
 
         <md-card-content class="post-content">
@@ -45,6 +19,7 @@
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
                 <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -54,7 +29,7 @@
 
       </md-card>
 
-      <md-card class="post-card grid-item">
+      <md-card class="post-card grid-item" fxFlex="33">
 
         <md-card-header class="post-header">
 
@@ -90,7 +65,7 @@
 
       </md-card>
 
-      <md-card class="post-card grid-item">
+      <md-card class="post-card grid-item" fxFlex="33">
 
         <md-card-header class="post-header">
 

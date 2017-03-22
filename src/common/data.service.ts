@@ -104,7 +104,7 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisWeekPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 10
+            limitToFirst: 20
           }
         });
     }
@@ -113,7 +113,7 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisMonthPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 10
+            limitToFirst: 20
           }
         });
     }
@@ -122,7 +122,7 @@ export class DataService {
         return this.af.database.list(this.repoCommitsThisWeekPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 10
+            limitToFirst: 20
           }
         });
     }
