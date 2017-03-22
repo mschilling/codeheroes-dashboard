@@ -1,10 +1,10 @@
 <div class="app-content-container">
   <div class="app-content-hd">
 
-    <div class="fp-posts" fxLayout="column" fxLayout.gt-md="row">
+    <div class="fp-posts" fxLayoutWrap="column" fxLayout.gt-md="row" fxLayoutGap="10px" fxLayoutWrap>
 
       <!--User commits per day-->
-      <md-card class="post-card" fxFlex.gt-md="33">
+      <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
           <md-card-title>Commits vandaag</md-card-title>
@@ -21,7 +21,7 @@
               <p md-line>
                 <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
                 <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
-                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
+                <br><span class="time">{{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
@@ -31,7 +31,7 @@
       </md-card>
 
       <!--User commits per month-->
-      <md-card class="post-card" fxFlex.gt-md="33">
+      <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
           <md-card-title>Commits deze maand</md-card-title>
@@ -46,37 +46,9 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
-                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
-              </p>
-            </md-list-item>
-          </md-list>
-
-        </md-card-content>
-
-      </md-card>
-
-      <!--Repo commits per day-->
-      <md-card class="post-card" fxFlex.gt-md="33">
-
-        <md-card-header class="post-header">
-          <md-card-title>Commits deze week</md-card-title>
-          <md-card-subtitle>Commits per repo</md-card-subtitle>
-          <div fxFlex></div>
-        </md-card-header>
-
-        <md-card-content class="post-content">
-          <div fxFlex></div>
-          <md-list>
-            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
-              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
-              <span class="post-score">{{ repo.score}}</span>
-              <h3 md-line> {{repo.$key}} </h3>
-              <p md-line>
                 <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
                 <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
-                <span class="time"> Last commit {{ repo.lastUpdate | amTimeAgo }} </span>
+                <span class="time">Last update {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
@@ -86,7 +58,7 @@
       </md-card>
 
       <!--User commits per week-->
-      <md-card class="post-card" fxFlex.gt-md="33">
+      <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
           <md-card-title>Commits deze week</md-card-title>
@@ -101,9 +73,9 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
-                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
+                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
+                <span class="time">Last update {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
           </md-list>
@@ -112,6 +84,33 @@
 
       </md-card>
 
+      <!--Repo commits per day-->
+      <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
+
+        <md-card-header class="post-header">
+          <md-card-title>Our Repositories</md-card-title>
+          <md-card-subtitle>Today's commits</md-card-subtitle>
+          <div fxFlex></div>
+        </md-card-header>
+
+        <md-card-content class="post-content">
+          <div fxFlex></div>
+          <md-list>
+            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
+              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
+              <span class="post-score">{{ repo.score}}</span>
+              <h3 md-line> {{repo.$key}} </h3>
+              <p md-line>
+                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
+                <span class="time">Last commit {{ repo.lastUpdate | amTimeAgo }} </span>
+              </p>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+
+      </md-card>
 
     </div>
 
