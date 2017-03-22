@@ -1,7 +1,7 @@
 <div class="app-content-container">
-  <div class="app-content-wide">
+  <div class="app-content-full">
 
-    <div class="fp-posts">
+    <div class="fp-posts grid-container">
 
       <!--<md-grid-list cols="4" rowHeight="100px">
         <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
@@ -18,7 +18,7 @@
         </md-grid-tile>
       </md-grid-list>-->
 
-      <md-card class="post-card">
+      <md-card class="post-card grid-item">
 
         <md-card-header class="post-header">
 
@@ -44,7 +44,7 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -54,7 +54,7 @@
 
       </md-card>
 
-      <md-card class="post-card">
+      <md-card class="post-card grid-item">
 
         <md-card-header class="post-header">
 
@@ -80,7 +80,7 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -90,7 +90,7 @@
 
       </md-card>
 
-      <md-card class="post-card">
+      <md-card class="post-card grid-item">
 
         <md-card-header class="post-header">
 
@@ -116,7 +116,7 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -127,35 +127,6 @@
       </md-card>
 
     </div>
-
-      <md-grid-list cols="4" rowHeight="280px">
-        <md-grid-tile colspan="3" rowspan="1" style="background:lightblue">
-          quote_of_the_day / test block
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="2" style="background:lightgreen">
-          <md-list>
-            <md-list-item>
-              #repo_commits_this_week
-            </md-list-item>
-            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
-              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
-              <span class="post-score">{{ repo.score}}</span>
-              <h3 md-line> {{repo.$key}} </h3>
-              <!--<p md-line>
-                <span class="message"> {{ user.message }} </span>
-                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
-              </p>-->
-            </md-list-item>
-          </md-list>
-
-        </md-grid-tile>
-        <md-grid-tile colspan="1" rowspan="1" style="background:lightpink">
-          #up_stats
-        </md-grid-tile>
-        <md-grid-tile colspan="2" rowspan="1" style="background:#DDBDF1">
-          #down_stats
-        </md-grid-tile>
-      </md-grid-list>
 
   </div>
 </div>

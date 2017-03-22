@@ -178,6 +178,26 @@
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .grid-container {
+    display: flex;
+    padding: 10px;
+  }
+  .grid-item {
+      display: inline;
+      flex: 3;
+      max-width: 33%;
+      margin: 10px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-card .post-user-link,
+  .post-card .post-location span {
+    max-width: 204px;
+  }
+}
+
 
 @media screen and (max-width: 640px) {
   .post-card .post-user-link,
