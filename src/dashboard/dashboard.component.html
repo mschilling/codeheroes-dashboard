@@ -32,20 +32,9 @@
       <md-card class="post-card" fxFlex.gt-md="33">
 
         <md-card-header class="post-header">
-
-          <md-card-title>
-            Commits deze week
-          </md-card-title>
-
-          <md-card-subtitle>
-            Comes new week, comes new opportunities
-          </md-card-subtitle>
-
+          <md-card-title>Commits deze week</md-card-title>
+          <md-card-subtitle>Comes new week, comes new opportunities</md-card-subtitle>
           <div fxFlex></div>
-
-          <div class="timestamp-camera-container">
-            <!--laatst geupdate ..-->
-          </div>
         </md-card-header>
 
         <md-card-content class="post-content">
@@ -56,6 +45,7 @@
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
                 <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -68,20 +58,9 @@
       <md-card class="post-card" fxFlex.gt-md="33">
 
         <md-card-header class="post-header">
-
-          <md-card-title>
-            Commits deze maand
-          </md-card-title>
-
-          <md-card-subtitle>
-            Don't miss it
-          </md-card-subtitle>
-
+          <md-card-title>Commits deze maand</md-card-title>
+          <md-card-subtitle>Don't miss it</md-card-subtitle>
           <div fxFlex></div>
-
-          <div class="timestamp-camera-container">
-            <!--laatst geupdate ..-->
-          </div>
         </md-card-header>
 
         <md-card-content class="post-content">
@@ -92,6 +71,7 @@
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
                 <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
                 <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
