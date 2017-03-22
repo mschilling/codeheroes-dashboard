@@ -3,6 +3,7 @@
 
     <div class="fp-posts" fxLayout="column" fxLayout.gt-md="row">
 
+      <!--User commits per day-->
       <md-card class="post-card" fxFlex.gt-md="33">
 
         <md-card-header class="post-header">
@@ -29,6 +30,62 @@
 
       </md-card>
 
+      <!--User commits per month-->
+      <md-card class="post-card" fxFlex.gt-md="33">
+
+        <md-card-header class="post-header">
+          <md-card-title>Commits deze maand</md-card-title>
+          <md-card-subtitle>Don't miss it</md-card-subtitle>
+          <div fxFlex></div>
+        </md-card-header>
+
+        <md-card-content class="post-content">
+          <md-list>
+            <md-list-item *ngFor="let user of userCommitsThisMonth | async">
+              <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
+              <span class="post-score">{{ user.score}}</span>
+              <h3 md-line> {{user.name}} </h3>
+              <p md-line>
+                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
+                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
+              </p>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+
+      </md-card>
+
+      <!--Repo commits per day-->
+      <md-card class="post-card" fxFlex.gt-md="33">
+
+        <md-card-header class="post-header">
+          <md-card-title>Commits deze week</md-card-title>
+          <md-card-subtitle>Commits per repo</md-card-subtitle>
+          <div fxFlex></div>
+        </md-card-header>
+
+        <md-card-content class="post-content">
+          <div fxFlex></div>
+          <md-list>
+            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
+              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
+              <span class="post-score">{{ repo.score}}</span>
+              <h3 md-line> {{repo.$key}} </h3>
+              <p md-line>
+                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
+                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
+                <span class="time"> Last commit {{ repo.lastUpdate | amTimeAgo }} </span>
+              </p>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+
+      </md-card>
+
+      <!--User commits per week-->
       <md-card class="post-card" fxFlex.gt-md="33">
 
         <md-card-header class="post-header">
@@ -55,31 +112,6 @@
 
       </md-card>
 
-      <md-card class="post-card" fxFlex.gt-md="33">
-
-        <md-card-header class="post-header">
-          <md-card-title>Commits deze maand</md-card-title>
-          <md-card-subtitle>Don't miss it</md-card-subtitle>
-          <div fxFlex></div>
-        </md-card-header>
-
-        <md-card-content class="post-content">
-          <md-list>
-            <md-list-item *ngFor="let user of userCommitsThisMonth | async">
-              <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
-              <span class="post-score">{{ user.score}}</span>
-              <h3 md-line> {{user.name}} </h3>
-              <p md-line>
-                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
-                <span class="time"> &middot; {{ user.lastUpdate | amTimeAgo }} </span>
-              </p>
-            </md-list-item>
-          </md-list>
-
-        </md-card-content>
-
-      </md-card>
 
     </div>
 
