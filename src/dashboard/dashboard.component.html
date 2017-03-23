@@ -1,14 +1,14 @@
 <div class="app-content-container">
   <div class="app-content-hd">
 
-    <div class="fp-posts" fxLayoutWrap="column" fxLayout.gt-md="row" fxLayoutGap="10px" fxLayoutWrap>
+    <div class="fp-posts" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="20px">
 
       <!--User commits per day-->
       <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
           <md-card-title>Commits vandaag</md-card-title>
-          <md-card-subtitle>Commit and push before going home 😉</md-card-subtitle>
+          <md-card-subtitle>Always push before going home 😉</md-card-subtitle>
           <div fxFlex></div>
         </md-card-header>
 
@@ -46,8 +46,6 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
                 <span class="time">Last update {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -73,8 +71,6 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
                 <span class="time">Last update {{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -96,13 +92,10 @@
         <md-card-content class="post-content">
           <div fxFlex></div>
           <md-list>
-            <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
-              <!--<img md-list-avatar src="{{user.avatar}}" alt="Avatar">-->
+            <md-list-item *ngFor="let repo of repoCommitsThisDay | async">
               <span class="post-score">{{ repo.score}}</span>
               <h3 md-line> {{repo.$key}} </h3>
               <p md-line>
-                <!--<span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>-->
                 <span class="time">Last commit {{ repo.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>

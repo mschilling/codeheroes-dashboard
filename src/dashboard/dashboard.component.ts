@@ -40,7 +40,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private userCommitsThisWeek: FirebaseListObservable<IScore[]>;
     private userCommitsThisMonth: FirebaseListObservable<IScore[]>;
 
+    private repoCommitsThisDay: FirebaseListObservable<IScore[]>;
     private repoCommitsThisWeek: FirebaseListObservable<IScore[]>;
+    private repoCommitsThisMonth: FirebaseListObservable<IScore[]>;
 
     constructor(private dataService: DataService,
                 private authService: AuthService,
@@ -60,7 +62,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.userCommitsThisWeek = this.dataService.userCommitsThisWeek;
         this.userCommitsThisMonth = this.dataService.userCommitsThisMonth;
 
+        this.repoCommitsThisDay = this.dataService.repoCommitsThisDay;
         this.repoCommitsThisWeek = this.dataService.repoCommitsThisWeek;
+        this.repoCommitsThisMonth = this.dataService.repoCommitsThisMonth;
 
         this.compositePosts = [];
         this.combineData();
