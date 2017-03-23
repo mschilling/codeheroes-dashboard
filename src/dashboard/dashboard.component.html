@@ -30,18 +30,18 @@
 
       </md-card>
 
-      <!--User commits per month-->
+      <!--User commits per week-->
       <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
-          <md-card-title>Commits deze maand</md-card-title>
-          <md-card-subtitle>Don't miss it</md-card-subtitle>
+          <md-card-title>Commits deze week</md-card-title>
+          <md-card-subtitle>Comes new week, comes new opportunities</md-card-subtitle>
           <div fxFlex></div>
         </md-card-header>
 
         <md-card-content class="post-content">
           <md-list>
-            <md-list-item *ngFor="let user of userCommitsThisMonth | async">
+            <md-list-item *ngFor="let user of userCommitsThisWeek | async">
               <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
@@ -55,18 +55,18 @@
 
       </md-card>
 
-      <!--User commits per week-->
+      <!--User commits per month-->
       <md-card class="post-card2" fxFlex.gt-md="1 calc(15em + 20px)">
 
         <md-card-header class="post-header">
-          <md-card-title>Commits deze week</md-card-title>
-          <md-card-subtitle>Comes new week, comes new opportunities</md-card-subtitle>
+          <md-card-title>Commits deze maand</md-card-title>
+          <md-card-subtitle>Don't miss it</md-card-subtitle>
           <div fxFlex></div>
         </md-card-header>
 
         <md-card-content class="post-content">
           <md-list>
-            <md-list-item *ngFor="let user of userCommitsThisWeek | async">
+            <md-list-item *ngFor="let user of userCommitsThisMonth | async">
               <img md-list-avatar src="{{user.avatar}}" alt="Avatar">
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
