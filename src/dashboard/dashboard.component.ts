@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private randomQuotesUrl = 'https://api.chucknorris.io/jokes/random'; //https://api.chucknorris.io/
   private randomQuote: string;
+  private randomQuoteIconUrl: string;
 
   constructor(private dataService: DataService,
     private authService: AuthService,
@@ -75,24 +76,27 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.compositePosts = [];
     this.combineData();
 
-    this.nextQuote();
+    // this.nextQuote();
 
     this.userCommitsThisDay.$ref
+      .orderByKey()
       .limitToLast(1)
-      .on("child_added", (child) => this.onCommit(child));
+      .on("child_added", (snapshot) => {
+        console.log('onNewCommit', snapshot.val());
+      });
 
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let timer = Observable.timer(2000,30000);
+    timer.subscribe(t=> {
+        console.log(new Date() + ' fetching new Quote');
+        this.nextQuote();
+    });
+  }
 
   ngOnDestroy() { }
-
-  onCommit(snapshot: firebase.database.DataSnapshot) {
-        console.log(snapshot.val());
-
-        this.nextQuote();
-  }
 
   togglePostLike(post: CompositePost, evt: Event) {
     post.liked = !post.liked;
@@ -190,10 +194,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   nextQuote(): void {
     this.getQuote().toPromise().then((p: any) => {
       this.randomQuote = p.value;
+      this.randomQuoteIconUrl = p.icon_url;
     })
   }
 
-  getQuote(): Observable<Comment[]> {
+  getQuote(): Observable<any> {
 
     return this.http.get(this.randomQuotesUrl)
       .map((res: Response) => res.json())
