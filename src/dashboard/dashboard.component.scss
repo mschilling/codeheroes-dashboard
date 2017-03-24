@@ -212,3 +212,24 @@
     max-width: 160px;
   }
 }
+
+
+.app-content-footer {
+  display: block;
+  background-color: #0288d1;
+  opacity: 0.75;
+
+  position: fixed;
+  bottom: 0;
+  // height: 50px;
+  width: 100%;
+
+  .quote {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    font-size: 180%;
+    color: #fcfcfc;
+  }
+
+}
