@@ -93,6 +93,7 @@
           <div fxFlex></div>
           <md-list>
             <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
+              <img md-list-avatar src="{{repo.avatar}}" alt="Avatar">
               <span class="post-score">{{ repo.score}}</span>
               <h3 md-line> {{repo.repo}} </h3>
               <p md-line>
