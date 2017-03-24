@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private repoCommitsThisMonth: FirebaseListObservable<IScore[]>;
 
   private randomQuotesUrl = 'https://api.chucknorris.io/jokes/random'; //https://api.chucknorris.io/
-  private randomQuote: string;
+  private randomQuote: string = "";
   private randomQuoteIconUrl: string;
 
   constructor(private dataService: DataService,
@@ -78,18 +78,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // this.nextQuote();
 
-    this.userCommitsThisDay.$ref
-      .orderByKey()
-      .limitToLast(1)
-      .on("child_added", (snapshot) => {
-        console.log('onNewCommit', snapshot.val());
-      });
-
+    // this.userCommitsThisDay.$ref
+    //   .orderByKey()
+    //   .limitToLast(1)
+    //   .on("child_added", (snapshot) => {
+    //     console.log('onNewCommit', snapshot.val());
+    //   });
 
   }
 
   ngOnInit() {
-    let timer = Observable.timer(2000,30000);
+    let timer = Observable.timer(2000,60000);
     timer.subscribe(t=> {
         console.log(new Date() + ' fetching new Quote');
         this.nextQuote();
