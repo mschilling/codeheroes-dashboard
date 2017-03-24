@@ -99,7 +99,7 @@ export class DataService {
         return this.af.database.list(this.userCommitsThisDayPath, {
           query: {
             orderByChild: 'orderKey',
-            limitToFirst: 10
+            limitToFirst: 20
           }
         });
     }
