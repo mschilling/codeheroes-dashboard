@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.userCommitsThisDay.$ref
       .limitToLast(1)
-      .on("child_added", this.onCommit);
+      .on("child_added", (child) => this.onCommit(child));
 
 
   }
@@ -89,7 +89,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy() { }
 
   onCommit(snapshot: firebase.database.DataSnapshot) {
-        // console.log(snapshot.val());
+        console.log(snapshot.val());
 
         this.nextQuote();
   }
