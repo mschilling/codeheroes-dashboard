@@ -95,7 +95,7 @@
             <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
               <img md-list-avatar src="{{repo.avatar}}" alt="Avatar">
               <span class="post-score">{{ repo.score}}</span>
-              <h3 md-line> {{repo.repo}} </h3>
+              <h3 md-line> {{repo.name}} </h3>
               <p md-line>
                 <span class="time">Last commit {{ repo.lastUpdate | amTimeAgo }} </span>
               </p>
