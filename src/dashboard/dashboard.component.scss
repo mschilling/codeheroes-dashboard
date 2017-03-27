@@ -178,6 +178,30 @@
   margin-right: 4px;
 }
 
+.chat-heads {
+  min-height: 48px;
+  padding-left: 10px;
+  position: relative;
+
+  .avatar {
+    max-width: 24px;
+
+    float: right;
+    margin-top: 0.6em;
+    // margin-left: 0.2em;
+    margin-right: 0.2em;
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+  }
+}
+
 // @media screen and (min-width: 1024px) {
 //   .grid-container {
 //     display: flex;
