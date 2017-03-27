@@ -102,7 +102,7 @@
               </p>
               <p md-line class="chat-heads">
                 <span *ngFor="let user of repo.users">
-                <img src="https://github.com/{{user}}.png?size=50" alt="Avatar" class="avatar">
+                <img src="https://github.com/{{user}}.png?size=50" alt="{{user}}" class="avatar">
                 <!--<span class="time">{{ repo.lastUpdate | amTimeAgo }} </span>-->
                 </span>
               </p>
