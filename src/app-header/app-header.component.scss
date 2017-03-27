@@ -8,7 +8,7 @@
 
   .fp-header {
     .fp-titlebar {
-      max-width: 1024px;
+      // max-width: 1024px;
       width: 100%;
       height: auto;
       padding: 10px 20px;
@@ -44,9 +44,9 @@
     }
 
     .fp-searchcontainer {
-      
+
     }
-    
+
     /* Signed-in person */
     .fp-user-info {
       margin-left: 10px;
@@ -157,7 +157,7 @@
       .fp-searchcontainer {
         display: none !important;
       }
-      
+
       .fp-user-info {
         .fp-signed-in-user-container {
           .fp-usernamelink {
