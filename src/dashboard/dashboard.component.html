@@ -19,8 +19,7 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
+                <span class="message"> {{ user.message }} </span>
                 <br><span class="time">{{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
