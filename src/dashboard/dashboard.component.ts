@@ -75,16 +75,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.compositePosts = [];
     this.combineData();
-
-    // this.nextQuote();
-
-    // this.userCommitsThisDay.$ref
-    //   .orderByKey()
-    //   .limitToLast(1)
-    //   .on("child_added", (snapshot) => {
-    //     console.log('onNewCommit', snapshot.val());
-    //   });
-
   }
 
   ngOnInit() {

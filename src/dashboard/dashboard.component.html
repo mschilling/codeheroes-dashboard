@@ -19,8 +19,7 @@
               <span class="post-score">{{ user.score}}</span>
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
-                <span class="message" *ngIf="user.$key != 'nkelder'"> {{ user.message }} </span>
-                <span class="message" *ngIf="user.$key == 'nkelder'"> <span class="emoji">🤡</span><span class="emoji">👻</span><span class="emoji">😬</span><span class="emoji">👽</span></span>
+                <span class="message"> {{ user.message }} </span>
                 <br><span class="time">{{ user.lastUpdate | amTimeAgo }} </span>
               </p>
             </md-list-item>
@@ -95,9 +94,9 @@
             <md-list-item *ngFor="let repo of repoCommitsThisWeek | async">
               <img md-list-avatar src="{{repo.avatar}}" alt="Avatar">
               <span class="post-score">{{ repo.score}}</span>
-              <h3 md-line> {{repo.name}} </h3>
+              <h3 md-line *ngIf="repo.meta.repository.organization !== 'move4mobile'"> {{repo.name}}</h3>
+              <h3 md-line *ngIf="repo.meta.repository.organization === 'move4mobile'"> {{repo.meta.repository.name}}</h3>
               <p md-line>
-                <!--<span class="time">Last commit {{ repo.lastUpdate | amTimeAgo }} </span>-->
                 <span class="time">{{ repo.lastUpdate | amTimeAgo }} </span>
               </p>
               <p md-line class="chat-heads">
