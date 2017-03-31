@@ -23,6 +23,7 @@ import {MapModule} from "../map/map.module";
 import {PersonModule} from "../person/person.module";
 import {PostComponent} from "../post/post.component";
 import {DashboardModule} from "../dashboard/dashboard.module";
+import {TvModule} from "../tv/tv.module";
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import {DashboardModule} from "../dashboard/dashboard.module";
         WordCloudModule,
         MapModule,
         DashboardModule,
+        TvModule,
     ],
     entryComponents: [PostComponent],
     providers: [],

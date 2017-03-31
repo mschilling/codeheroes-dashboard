@@ -2,7 +2,7 @@
   <app-header [authenticated]="auth.authenticated"
               [userId]="auth.id"
               [userInfo]="auth.userInfo"
-              (signOut)="signOut($event)"></app-header>
+              (signOut)="signOut($event)" *ngIf="false"></app-header>
 
   <main class="main" fxFlex>
     <router-outlet></router-outlet>

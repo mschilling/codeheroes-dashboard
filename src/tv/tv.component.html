@@ -1,0 +1,40 @@
+<div class="app-content-container-1080">
+  <div class="app-content">
+
+
+    <md-grid-list cols="20" rowHeight="22px">
+
+      <md-grid-tile [colspan]="5" [rowspan]="18">
+        <!--One-->
+      </md-grid-tile>
+
+      <md-grid-tile [colspan]="4" [rowspan]="14">
+        <!--Two-->
+      </md-grid-tile>
+
+      <md-grid-tile [colspan]="5" [rowspan]="20">
+        <!--Three-->
+      </md-grid-tile>
+
+      <md-grid-tile [colspan]="6" [rowspan]="30">
+
+          <md-list class="text-inside-grid">
+
+            <md-list-item class="header">
+              <h3 md-line>Weekly Leaderboard</h3>
+            </md-list-item>
+
+            <md-list-item *ngFor="let user of items$ | async">
+              <img md-list-avatar src="{{user.avatar}}" alt="Avatar" class="avatar">
+              <span class="post-score">{{ user.score}}</span>
+              <h3 md-line> {{user.name}} </h3>
+            </md-list-item>
+          </md-list>
+
+
+      </md-grid-tile>
+
+    </md-grid-list>
+
+  </div>
+</div>

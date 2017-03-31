@@ -1,0 +1,63 @@
+.app-content-container-1080 {
+  margin: 0;
+  height: calc( 100% - 40px);
+  width: calc(100% - 40px);
+
+  background: url('../assets/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  // opacity: 0.5;
+
+  // background-color: #c00000;
+  padding: 20px;
+
+  .app-content {
+    // opacity: 0.8;
+    // background-color: white;
+    // height: 100%;
+    // margin: 40px;;
+
+    md-grid-list {
+      .text-inside-grid {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        display: block;
+        width: 100%;
+        background-color: whitesmoke;
+        opacity: 0.9;
+        overflow: hidden;
+
+        md-list-item.header {
+          h3 {
+            font-size: 24px;
+            font-weight: bolder;
+            color: gray;
+            // text-align: center;
+          }
+        }
+
+        md-list-item {
+
+          min-height: 61px;
+
+          h3, span {
+            font-size: 24px;
+          }
+
+          .avatar {
+            margin-right: 20px;
+            min-width: 44px;
+            min-height: 44px;
+          }
+        }
+
+      }
+
+
+
+
+    }
+  }
+
+}
+
