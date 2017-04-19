@@ -22,7 +22,7 @@ Leaderboard
         <span class="score">Score</span>
       </div>-->
       <ol class="leaderboard">
-        <li class="player" *ngFor="let item of userCommitsThisDay | async">
+        <li class="player" *ngFor="let item of leaderboardWeekly | async">
           <span class="name">{{ item.name }}</span>
           <span class="score">{{ item.score }}</span>
         </li>
