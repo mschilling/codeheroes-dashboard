@@ -147,6 +147,16 @@ export class DataService {
           }
         });
     }
+
+    get leaderboardWeekly(): FirebaseListObservable<any[]> {
+        return this.af.database.list('/leaderboards/user-weekly', {
+          query: {
+            orderByChild: 'orderKey',
+            limitToFirst: 30
+          }
+        });
+    }
+
     /** PUBLIC POST **/
     createPublicPost(post:Post): firebase.Promise<any> {
         return this.af.database.list(this.publicPostsPath).push(post);

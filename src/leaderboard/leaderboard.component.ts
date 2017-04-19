@@ -46,7 +46,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
   private repoCommitsThisWeek: FirebaseListObservable<IScore[]>;
   private repoCommitsThisMonth: FirebaseListObservable<IScore[]>;
 
-  private leaderboardWeekly: FirebaseListObservable<any[]>;
+  private leaderboardWeekly$: FirebaseListObservable<any[]>;
 
   private randomQuotesUrl = 'https://api.chucknorris.io/jokes/random'; //https://api.chucknorris.io/
   private randomQuote: string = "";
@@ -75,7 +75,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     this.repoCommitsThisWeek = this.dataService.repoCommitsThisWeek;
     this.repoCommitsThisMonth = this.dataService.repoCommitsThisMonth;
 
-    this.leaderboardWeekly = this.dataService.userCommitsThisDay;
+    this.leaderboardWeekly$ = this.dataService.leaderboardWeekly;
 
     this.compositePosts = [];
     this.combineData();
