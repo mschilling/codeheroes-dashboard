@@ -1,0 +1,33 @@
+<!--<div class="app-content-container animated fadeInUp">
+  <div class="app-content-hd">
+Leaderboard
+  </div>
+</div>-->
+
+<!--<md-grid-list cols="1">
+  <md-grid-tile
+      [style.background]="'lightgreen'">
+    {{tile.text}}
+  </md-grid-tile>
+</md-grid-list>-->
+
+<div class="leaderboard-content-container">
+  <div class="leaderboard-content">
+
+    <div class="logo"></div>
+    <h1 class="title">Leaderboard</h1>
+    <div class="subtitle">Select a scientist to give them points</div>
+
+      <!--<div class="heading">
+        <span class="name">Player</span>
+        <span class="score">Score</span>
+      </div>-->
+      <ol class="leaderboard">
+        <li class="player" *ngFor="let item of userCommitsThisDay | async">
+          <span class="name">{{ item.name }}</span>
+          <span class="score">{{ item.score }}</span>
+        </li>
+      </ol>
+
+  </div>
+</div>
