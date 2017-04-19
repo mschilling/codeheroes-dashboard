@@ -1,0 +1,121 @@
+app-header {
+  display: none !important;
+}
+
+// https://github.com/meteor/leaderboard/blob/master/leaderboard.css
+
+.leaderboard-content-container {
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: url('../assets/images/lb-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+
+  .leaderboard-content {
+
+    margin: 3em auto;
+    // max-width: 1024px;
+    max-width: 90vw;
+
+    .title {
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: .3em;
+      margin: 0 0 .45em;
+      text-align: center;
+      text-indent: .3em;
+      text-transform: uppercase;
+      color: #f1f1f1;
+    }
+
+    .subtitle {
+      color: #999;
+      font-size: .875em;
+      margin-bottom: 2em;
+      text-align: center;
+    }
+
+
+    .leaderboard {
+      border-top: 1px solid #f1f1f1;
+      counter-reset: ol-counter;
+      list-style-type: none;
+      margin: 0 0 1.5em;
+      padding: 0;
+      max-height: 76vh;
+      overflow: scroll;
+      opacity: 0.9;
+    }
+
+    .leaderboard li:nth-child(odd)  {
+      background-color: #fefff4;
+    }
+
+    .leaderboard li:nth-child(even)  {
+      background-color: lightgray;
+    }
+
+    .player {
+      border-bottom: 1px solid #f1f1f1;
+      cursor: pointer;
+      padding: .20em 0;
+      position: relative;
+      overflow: hidden;
+      transition: background 300ms ease-out;
+      border-left: 4px solid white;
+    }
+
+    .player:before {
+      color: #999;
+      content: counter(ol-counter);
+      counter-increment: ol-counter;
+      display: inline-block;
+      font-weight: 300;
+      line-height: 3em;
+      text-align: center;
+      vertical-align: middle;
+      width: 3em;
+    }
+
+    // .player .avatar {
+    //   display: inline-block;
+    //   margin-right: 1em;
+    //   vertical-align: middle;
+    // }
+
+    .player .name {
+      display: inline-block;
+      font-size: 1.25em;
+      font-weight: 300;
+      vertical-align: middle;
+    }
+
+    .player .score {
+      color: #333;
+      display: block;
+      float: right;
+      font-size: 1.25em;
+      font-weight: 600;
+      line-height: 2.4em;
+      padding-right: 1.25em;
+    }
+
+    // .player.selected {
+    //   background-color: #fefff4;
+    //   border-left: #eb5f3a 4px solid;
+    // }
+
+    // .player:hover {
+    //   background-color: #fefff4;
+    // }
+
+
+  }
+
+}
