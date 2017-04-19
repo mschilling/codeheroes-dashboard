@@ -24,9 +24,28 @@ Leaderboard
       <ol class="leaderboard">
         <li class="player" *ngFor="let item of leaderboardWeekly$ | async">
           <span class="name">{{ item.name }}</span>
-          <span class="score">{{ item.score }}</span>
+          <ul class="scores">
+            <li>{{ item.count_issues_opened }} / {{ item.count_issues_closed }}</li>
+            <li>{{ item.count_pull_requests }}</li>
+            <li>{{ item.count_commits }}</li>
+            <li>{{ item.count_pushes }}</li>
+            <li>{{ item.score }}</li>
+          </ul>
+          <!--<span class="score">{{ item.score }}</span>-->
         </li>
       </ol>
+
+      <ul class="legend">
+        <li>Legenda: </li>
+        <li>&nbsp;</li>
+        <li>issues<br>opened / closed</li>
+        <li>pr</li>
+        <li>commits</li>
+        <li>push</li>
+        <li>score</li>
+      </ul>
+
+
 
   </div>
 </div>

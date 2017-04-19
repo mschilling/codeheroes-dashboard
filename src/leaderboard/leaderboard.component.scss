@@ -53,11 +53,11 @@ app-header {
       opacity: 0.9;
     }
 
-    .leaderboard li:nth-child(odd)  {
+    .leaderboard > li:nth-child(odd)  {
       background-color: #fefff4;
     }
 
-    .leaderboard li:nth-child(even)  {
+    .leaderboard > li:nth-child(even)  {
       background-color: lightgray;
     }
 
@@ -115,7 +115,65 @@ app-header {
     //   background-color: #fefff4;
     // }
 
+    ul.scores {
+      // border-top: 1px solid #f1f1f1;
+      // counter-reset: ol-counter;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: inline-table;
 
-  }
+      color: #333;
+      display: block;
+      float: right;
+      font-size: 1.25em;
+      font-weight: 400;
+      line-height: 2.4em;
+      padding-right: 1.25em;
+
+
+
+      li {
+        display: inline-table;
+        min-width: 8vw;
+        text-align: right;
+      }
+
+      li:last-child {
+        font-size: 1.25em;
+        font-weight: 600;
+        min-width: 16vw;
+      }
+    }
+
+      ul.legend {
+            background-color: rgba(254, 255, 254, 0.7);
+            // border-top: 1px solid #f1f1f1;
+            // counter-reset: ol-counter;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-table;
+
+            color: #333;
+            display: block;
+            float: right;
+            font-size: 1.00em;
+            font-weight: 400;
+            line-height: 1.6em;
+            padding-right: 1.00em;
+
+            li {
+              display: inline-table;
+              min-width: 8vw;
+              text-align: right;
+            }
+
+            li:last-child {
+              min-width: 16vw;
+            }
+          }
+
+        }
 
 }
