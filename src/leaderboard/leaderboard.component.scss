@@ -51,6 +51,7 @@ app-header {
       max-height: 76vh;
       overflow: scroll;
       opacity: 0.9;
+
     }
 
     .leaderboard > li:nth-child(odd)  {
@@ -64,11 +65,15 @@ app-header {
     .player {
       border-bottom: 1px solid #f1f1f1;
       cursor: pointer;
-      padding: .20em 0;
+      padding: .10em 0;
       position: relative;
       overflow: hidden;
       transition: background 300ms ease-out;
       border-left: 4px solid white;
+
+      font-size: 2.36em;
+      font-weight: 400;
+      line-height: 2.36em;
     }
 
     .player:before {
@@ -76,8 +81,8 @@ app-header {
       content: counter(ol-counter);
       counter-increment: ol-counter;
       display: inline-block;
-      font-weight: 300;
-      line-height: 3em;
+      // font-weight: 300;
+      // line-height: 3em;
       text-align: center;
       vertical-align: middle;
       width: 3em;
@@ -91,8 +96,8 @@ app-header {
 
     .player .name {
       display: inline-block;
-      font-size: 1.25em;
-      font-weight: 300;
+      // font-size: 1.8em;
+      // font-weight: 300;
       vertical-align: middle;
     }
 
@@ -100,8 +105,8 @@ app-header {
       color: #333;
       display: block;
       float: right;
-      font-size: 1.25em;
-      font-weight: 600;
+      // font-size: 1.25em;
+      // font-weight: 600;
       line-height: 2.4em;
       padding-right: 1.25em;
     }
@@ -126,9 +131,9 @@ app-header {
       color: #333;
       display: block;
       float: right;
-      font-size: 1.25em;
-      font-weight: 400;
-      line-height: 2.4em;
+      // font-size: 1.25em;
+      // font-weight: 400;
+      // line-height: 2.4em;
       padding-right: 1.25em;
 
 
@@ -158,9 +163,9 @@ app-header {
             color: #333;
             display: block;
             float: right;
-            font-size: 1.00em;
-            font-weight: 400;
-            line-height: 1.6em;
+            font-size: 2.36em;
+            font-weight: 300;
+            line-height: 2.36em;
             padding-right: 1.00em;
 
             li {
