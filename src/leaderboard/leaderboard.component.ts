@@ -20,24 +20,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 })
 export class LeaderboardComponent implements OnInit, OnDestroy {
 
-  // Posts shown in the feed
-  private compositePosts: CompositePost[];
-  private subscribePosts: Subscription;
-
-  // private userCommitsThisMonth: IScore[];
-
-  private postDialogRef: MdDialogRef<PostComponent>;
-
   // Realtime Database observables
-  private publicPosts$: FirebaseListObservable<IPost[]>;
-  private userPosts$: FirebaseListObservable<IPost[]>;
-  private comments$: FirebaseListObservable<IComment[]>;
-  private likes$: FirebaseListObservable<ILike[]>;
-  private people$: FirebaseListObservable<IPerson[]>;
-  private tags$: FirebaseListObservable<ITag[]>;
-  private locations$: FirebaseListObservable<ILocation[]>;
-  private cameras$: FirebaseListObservable<ICamera[]>;
-
   private userCommitsThisDay: FirebaseListObservable<IScore[]>;
   private userCommitsThisWeek: FirebaseListObservable<IScore[]>;
   private userCommitsThisMonth: FirebaseListObservable<IScore[]>;
@@ -48,24 +31,11 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 
   private leaderboardWeekly$: FirebaseListObservable<any[]>;
 
-  private randomQuotesUrl = 'https://api.chucknorris.io/jokes/random'; //https://api.chucknorris.io/
-  private randomQuote: string = "";
-  private randomQuoteIconUrl: string;
-
   constructor(private dataService: DataService,
     private authService: AuthService,
     public dialog: MdDialog,
     public viewContainerRef: ViewContainerRef,
     private http: Http) {
-
-    this.publicPosts$ = this.dataService.publicPosts;
-    this.userPosts$ = this.dataService.userPosts;
-    this.comments$ = this.dataService.comments;
-    this.likes$ = this.dataService.likes;
-    this.people$ = this.dataService.people;
-    this.tags$ = this.dataService.tags;
-    this.locations$ = this.dataService.locations;
-    this.cameras$ = this.dataService.cameras;
 
     this.userCommitsThisDay = this.dataService.userCommitsThisDay;
     this.userCommitsThisWeek = this.dataService.userCommitsThisWeek;
@@ -77,16 +47,9 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 
     this.leaderboardWeekly$ = this.dataService.leaderboardWeekly;
 
-    this.compositePosts = [];
-    this.combineData();
   }
 
   ngOnInit() {
-    let timer = Observable.timer(2000,60000);
-    timer.subscribe(t=> {
-        console.log(new Date() + ' fetching new Quote');
-        this.nextQuote();
-    });
   }
 
   ngOnDestroy() { }
@@ -95,108 +58,6 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     post.liked = !post.liked;
 
     this.dataService.updatePostLikes(post.id, this.authService.id, post.liked);
-  }
-
-  combineData() {
-    const combinedPosts = Observable
-      .combineLatest(
-      this.publicPosts$,
-      this.userPosts$,
-      this.comments$,
-      this.likes$,
-      this.people$,
-      this.tags$,
-      this.locations$,
-      this.cameras$,
-      (publicPosts: IPost[], userPosts: IPost[], comments: IComment[], likes: ILike[], people: IPerson[], tags: ITag[], locations: ILocation[], cameras: ICamera[]) => {
-
-        _.each(publicPosts, post => {
-          let postId: string = post.$key;
-
-          let newCompositePost = new CompositePost();
-          newCompositePost.id = postId;
-
-          /** POST **/
-          newCompositePost.author = post.author;
-          newCompositePost.full_storage_uri = post.full_storage_uri;
-          newCompositePost.full_url = post.full_url;
-          newCompositePost.text = post.text;
-          newCompositePost.thumb_storage_uri = post.thumb_storage_uri;
-          newCompositePost.thumb_url = post.thumb_url;
-          newCompositePost.timestamp = post.timestamp;
-
-          /** LIKES **/
-          let postLikeCount = 0;
-          let isPostLiked = false;
-          let postLikes = _.find(likes, like => like.$key == postId);
-          if (!!postLikes) {
-            let keys = Object.keys(postLikes);
-            isPostLiked = _.indexOf(keys, this.authService.id) > -1;
-            postLikeCount = keys.length;
-          }
-          newCompositePost.liked = isPostLiked;
-          newCompositePost.likes = postLikeCount;
-
-          /** TAGS **/
-          let postTags = _.find(tags, tag => tag.$key == postId);
-          if (Array.isArray(postTags) && postTags.length > 0) {
-            newCompositePost.tags = postTags;
-          }
-
-          /** LOCATIONS **/
-          let postLocations = _.find(locations, location => location.$key == postId);
-          if (Array.isArray(postLocations) && postLocations.length > 0) {
-            newCompositePost.location = postLocations[0];
-          }
-
-          /** CAMERA **/
-          let postCamera = _.find(cameras, camera => camera.$key == postId);
-          newCompositePost.camera = postCamera;
-
-          /** RESULT **/
-          // Find item index using indexOf+find
-          let index = _.indexOf(this.compositePosts, _.find(this.compositePosts, { id: postId }));
-
-          if (index > -1) {
-            // Replace item at index using native splice
-            this.compositePosts.splice(index, 1, newCompositePost);
-          } else {
-            this.compositePosts.push(newCompositePost);
-          }
-        });
-
-        this.compositePosts = _.orderBy(this.compositePosts, ['timestamp', 'id'], ['desc', 'desc']);
-
-        return this.compositePosts;
-      }
-      );
-
-    //log values
-    this.subscribePosts = combinedPosts.subscribe(latestValuesProject => console.log(latestValuesProject));
-  }
-
-  showPost(post: CompositePost, evt: Event) {
-
-    let config = new MdDialogConfig();
-    config.viewContainerRef = this.viewContainerRef;
-
-    this.postDialogRef = this.dialog.open(PostComponent, config);
-    this.postDialogRef.componentInstance.currentPost = post;
-  }
-
-  nextQuote(): void {
-    this.getQuote().toPromise().then((p: any) => {
-      this.randomQuote = p.value;
-      this.randomQuoteIconUrl = p.icon_url;
-    })
-  }
-
-  getQuote(): Observable<any> {
-
-    return this.http.get(this.randomQuotesUrl)
-      .map((res: Response) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
   }
 
 }
