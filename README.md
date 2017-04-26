@@ -14,7 +14,6 @@ http://stackoverflow.com/questions/39020022/angular-2-unit-tests-cannot-find-nam
 See CONTRIBUTING.md
 
 ## Code Heroes Stack
-
 Repository name | URL
 --- | ---
 codeheroes-dashboard | https://github.com/mschilling/codeheroes-dashboard
