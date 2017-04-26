@@ -16,3 +16,5 @@ cache:
     - $(npm config get prefix)/bin/@angular/cli
     - $(npm config get prefix)/bin/firebase-tools
     - node_modules
+notifications:
+  email: false
