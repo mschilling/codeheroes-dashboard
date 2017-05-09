@@ -1,5 +1,6 @@
 ![Build Status](https://api.travis-ci.org/mschilling/codeheroes-dashboard.svg?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/mschilling/codeheroes-dashboard.svg)](https://greenkeeper.io/)
+[![Code Climate](https://codeclimate.com/github/mschilling/codeheroes-dashboard/badges/gpa.svg)](https://codeclimate.com/github/mschilling/codeheroes-dashboard)
 
 # Code Heroes
 Who's the best dev at your company?
