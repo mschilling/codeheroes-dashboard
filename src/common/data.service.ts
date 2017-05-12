@@ -35,7 +35,7 @@ export class DataService {
         this.userPostsPath = `/feed/${auth.id}/posts`;
         this.commentsPath = `/comments/`;
         this.likesPath = `/likes/`;
-        this.peoplePath = `/people/`;
+        this.peoplePath = `/users/`;
         this.followersPath = `/followers/`;
 
         this.tagsPath = `/tags/`;
