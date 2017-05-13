@@ -6,7 +6,9 @@
            [ngStyle]="{ 'background-image': 'url(' + currentPerson.profile_picture + ')' }"></div>
 
       <div class="fp-name-follow-container mdl-cell mdl-cell--5-col">
-        <div class="fp-user-username">{{ currentPerson.full_name }}</div>
+        <div class="fp-user-username" *ngIf="!currentPerson.codeName">{{ currentPerson.name }}</div>
+        <div class="fp-user-username" *ngIf="!!currentPerson.codeName">{{ currentPerson.codeName }} ({{ currentPerson.name }})</div>
+        <div class="fp-user-username" *ngIf="!!currentPerson.team">{{ currentPerson.team }}</div>
 
         <div class="fp-signed-in-only" *ngIf="personId == authService.id">
           <!--
