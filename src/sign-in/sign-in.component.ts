@@ -38,7 +38,8 @@ export class SignInComponent {
 
     private postSignIn(): void {
       // console.log('Auth', this.auth.authState);
-      this.updateCurrentUserProfile().subscribe( () => {
+      this.updateCurrentUserProfile().subscribe( (response) => {
+        console.log(response);
         this.router.navigate(['/dashboard']);
       })
     }
@@ -49,7 +50,8 @@ export class SignInComponent {
               const updates = {
                 github_userid: this.auth.authState.github.uid
               }
-              return this.dataService.updatePerson(person, updates);
+              // return this.dataService.updatePerson(person, updates);
+              return this.dataService.getGitHubUser(updates.github_userid);
           });
     }
 }
