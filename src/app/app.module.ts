@@ -24,6 +24,7 @@ import {PersonModule} from "../person/person.module";
 import {PostComponent} from "../post/post.component";
 import {DashboardModule} from "../dashboard/dashboard.module";
 import {TvModule} from "../tv/tv.module";
+import {LeaderboardModule} from "../leaderboard/leaderboard.module";
 
 @NgModule({
     declarations: [
@@ -40,10 +41,8 @@ import {TvModule} from "../tv/tv.module";
         MaterialModule,
         FlexLayoutModule,
         MomentModule,
-
         AuthModule,
         FirebaseModule,
-
         LandingModule,
         SignInModule,
         FeedModule,
@@ -52,6 +51,7 @@ import {TvModule} from "../tv/tv.module";
         MapModule,
         DashboardModule,
         TvModule,
+        LeaderboardModule
     ],
     entryComponents: [PostComponent],
     providers: [],

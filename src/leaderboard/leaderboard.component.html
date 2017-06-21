@@ -1,0 +1,51 @@
+<!--<div class="app-content-container animated fadeInUp">
+  <div class="app-content-hd">
+Leaderboard
+  </div>
+</div>-->
+
+<!--<md-grid-list cols="1">
+  <md-grid-tile
+      [style.background]="'lightgreen'">
+    {{tile.text}}
+  </md-grid-tile>
+</md-grid-list>-->
+
+<div class="leaderboard-content-container">
+  <div class="leaderboard-content">
+
+    <h1 class="title">Leaderboard</h1>
+    <!--<div class="subtitle">Select a scientist to give them points</div>-->
+
+      <!--<div class="heading">
+        <span class="name">Player</span>
+        <span class="score">Score</span>
+      </div>-->
+      <ol class="leaderboard">
+        <li class="player" *ngFor="let item of leaderboardWeekly$ | async">
+          <span class="name">{{ item.name }}</span>
+          <ul class="scores">
+            <li>{{ item.count_issues_opened }} / {{ item.count_issues_closed }}</li>
+            <li>{{ item.count_pull_requests_opened }} / {{ item.count_pull_requests_closed }}</li>
+            <li>{{ item.count_commits }}</li>
+            <li>{{ item.count_pushes }}</li>
+            <li>{{ item.score }}</li>
+          </ul>
+          <!--<span class="score">{{ item.score }}</span>-->
+        </li>
+      </ol>
+
+      <ul class="legend">
+        <li>Legenda: </li>
+        <li>&nbsp;</li>
+        <li>issues<br>opened / closed</li>
+        <li>pr</li>
+        <li>commits</li>
+        <li>push</li>
+        <li>score</li>
+      </ul>
+
+
+
+  </div>
+</div>

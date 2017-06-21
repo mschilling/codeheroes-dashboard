@@ -20,7 +20,11 @@
               <h3 md-line> {{user.name}} </h3>
               <p md-line>
                 <span class="message"> {{ user.message }} </span>
-                <br><span class="time">{{ user.lastUpdate | amTimeAgo }} </span>
+                <br>
+                <span class="time">
+                  {{ user.lastUpdate | amTimeAgo }} @
+                  {{ user.meta.repository.organization === 'move4mobile' ? user.meta.repository.name : user.meta.repository.fullName }}
+                </span>
               </p>
             </md-list-item>
           </md-list>
