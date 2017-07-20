@@ -3,6 +3,10 @@
     "public": "dist",
     "rewrites": [
       {
+        "source": "/assistant",
+        "function": "assistant"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
