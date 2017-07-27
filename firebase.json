@@ -3,6 +3,14 @@
     "public": "dist",
     "rewrites": [
       {
+        "source": "/assistant",
+        "function": "assistant"
+      },
+      {
+        "source": "/webhooks/travis",
+        "function": "travisWebhook"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
